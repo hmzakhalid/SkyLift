@@ -42,8 +42,8 @@ const flightClass = [
 
 const FlightSearchForm: FC<FlightSearchFormProps> = ({ haveDefaultValue }) => {
   // DEFAULT DATA FOR ARCHIVE PAGE
-  const defaultPickUpInputValue = "Tokyo, Japan";
-  const defaultDropOffInputValue = "Paris, France";
+  const defaultPickUpInputValue = "City, Singapore";
+  const defaultDropOffInputValue = "Tokyo, Japan";
 
   // USE STATE
   const [dateRangeValue, setDateRangeValue] = useState<DateRage>({
@@ -54,8 +54,8 @@ const FlightSearchForm: FC<FlightSearchFormProps> = ({ haveDefaultValue }) => {
   //   startTime: "10:00 AM",
   //   endTime: "10:00 AM",
   // });
-  const [pickUpInputValue, setPickUpInputValue] = useState("");
-  const [dropOffInputValue, setDropOffInputValue] = useState("");
+  const [pickUpInputValue, setPickUpInputValue] = useState("City, Singapore");
+  const [dropOffInputValue, setDropOffInputValue] = useState("Tokyo, Japan");
   const [fieldFocused, setFieldFocused] = useState<
     FocusedInputShape | "dropOffInput" | null
   >(null);
@@ -66,15 +66,15 @@ const FlightSearchForm: FC<FlightSearchFormProps> = ({ haveDefaultValue }) => {
   const [flightClassState, setFlightClassState] = useState("Economy");
 
 
-  const uploadToLocalStoarge = () => {
+  // const uploadToLocalStoarge = () => {
 
-    localStorage.setItem("pickUpInputValue", pickUpInputValue);
-    localStorage.setItem("dropOffInputValue", dropOffInputValue);
-    localStorage.setItem("startDate", dateRangeValue.startDate!?.format("YYYY-MM-DD"));
-    localStorage.setItem("endDate", dateRangeValue.endDate!?.format("YYYY-MM-DD"));
-    localStorage.setItem("guests", guests.toString());
-    localStorage.setItem("flightClassState", flightClassState);
-  };
+  //   localStorage.setItem("pickUpInputValue", pickUpInputValue);
+  //   localStorage.setItem("dropOffInputValue", dropOffInputValue);
+  //   localStorage.setItem("startDate", dateRangeValue.startDate!?.format("YYYY-MM-DD"));
+  //   localStorage.setItem("endDate", dateRangeValue.endDate!?.format("YYYY-MM-DD"));
+  //   localStorage.setItem("guests", guests.toString());
+  //   localStorage.setItem("flightClassState", flightClassState);
+  // };
 
   // USER EFFECT
   useEffect(() => {
@@ -257,11 +257,12 @@ const FlightSearchForm: FC<FlightSearchFormProps> = ({ haveDefaultValue }) => {
               onFocusChange={(focus) => setFieldFocused(focus)}
               onChange={(data) => {
                 setDateRangeValue(data.stateDate);
+                localStorage.setItem("currentDates", JSON.stringify(data.stateDate));
                 // setTimeRangeValue(data.stateTimeRage);
               }}
               className="flex-1"
               buttonSubmitHref="/listing-flights"
-              buttonSubmitFunction={uploadToLocalStoarge}
+              // buttonSubmitFunction={uploadToLocalStoarge}
             />
           </div>
 

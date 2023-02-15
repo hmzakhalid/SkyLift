@@ -176,6 +176,7 @@ const RentalCarDatesRangeInput: FC<RentalCarDatesRangeInputProps> = ({
           focusedInput={focusedInput}
           onDatesChange={(date) => {
             setStateDate(date);
+            localStorage.setItem("currentDates", JSON.stringify(date));
             // onChange && onChange({ stateDate: date, stateTimeRage });
           }}
           onFocusChange={handleDateFocusChange}

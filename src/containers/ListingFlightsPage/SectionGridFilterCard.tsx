@@ -96,10 +96,9 @@ const SectionGridFilterCard: FC<SectionGridFilterCardProps> = ({
         heading="Singapore - Tokyo"
         subHeading={
           <span className="block text-neutral-500 dark:text-neutral-400 mt-3">
-            22 flights
+            10+ flights
             <span className="mx-2">·</span>
             round trip
-            <span className="mx-2">·</span>2 Guests
           </span>
         }
       />

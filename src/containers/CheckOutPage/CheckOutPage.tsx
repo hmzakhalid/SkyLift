@@ -46,15 +46,27 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
     guestInfants: 1,
   });
 
-  const defaultPickUpInputValue = "Tokyo, Japan";
-  const defaultDropOffInputValue = "City, Singapore";
+  const defaultPickUpInputValue = "City, Singapore";
+  const defaultDropOffInputValue = "Tokyo, Japan";
 
+  const [price, setPrice] = useState(0);
+  const [airline, setAirline] = useState("");
   const [pickUpInputValue, setPickUpInputValue] = useState("");
   const [dropOffInputValue, setDropOffInputValue] = useState("");
-
+  let ticketDets = {}
   useEffect(() => {
+    ticketDets = JSON.parse(localStorage.getItem('checkoutDets')!);
+    const currentDates = JSON.parse(localStorage.getItem("currentDates")!)
+    console.log(currentDates);
+    setRangeDates({
+      startDate: moment(currentDates.startDate),
+      endDate: moment(currentDates.endDate),
+    });
+    setPrice(ticketDets.price);
+    setAirline(ticketDets.airline);
     setPickUpInputValue(defaultPickUpInputValue);
     setDropOffInputValue(defaultDropOffInputValue);
+    console.log(JSON.parse(localStorage.getItem('checkoutDets')!))
   }, [])
 
 
@@ -71,14 +83,14 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
           <div className="py-5 sm:px-5 space-y-3">
             <div>
               <span className="text-sm text-neutral-500 dark:text-neutral-400 line-clamp-1">
-                New York Airport - Tokyo International Airport
+                Tokyo, Japan - City Singapore
               </span>
               <span className="text-base font-medium mt-1 block">
-                Japanese Airlines
+                {airline}
               </span>
             </div>
             <span className="block  text-sm text-neutral-500 dark:text-neutral-400">
-              2x Economy Class
+              1x Ticket(s)
             </span>
             <div className="w-10 border-b border-neutral-200  dark:border-neutral-700"></div>
             {/* <StartRating /> */}
@@ -87,18 +99,18 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
         <div className="flex flex-col space-y-4">
           <h3 className="text-2xl font-semibold">Price detail</h3>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>$1400 x 2</span>
-            <span>$2800</span>
+          <span>Ticket Cost</span>
+            <span>${price}</span>
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Service charge</span>
-            <span>$0</span>
+            {/* <span>Service charge</span>
+            <span>$0</span> */}
           </div>
 
           <div className="border-b border-neutral-200 dark:border-neutral-700"></div>
           <div className="flex justify-between font-semibold">
             <span>Total</span>
-            <span>$2800</span>
+            <span>${price}</span>
           </div>
         </div>
       </div>
