@@ -19,9 +19,6 @@ const PageAbout: FC<PageAboutProps> = ({ className = "" }) => {
       className={`nc-PageAbout overflow-hidden relative ${className}`}
       data-nc-id="PageAbout"
     >
-      <Head>
-        <title>About || Elevate Your Traveling Experience</title>
-      </Head>
 
       {/* ======== BG GLASS ======== */}
       <BgGlassmorphism />
@@ -31,7 +28,7 @@ const PageAbout: FC<PageAboutProps> = ({ className = "" }) => {
           rightImg={rightImg}
           heading="👋 About Us."
           btnText=""
-          subHeading="We’re impartial and independent, and every day we create distinctive, world-class programmes and content which inform, educate and entertain millions of people in the around the world."
+          subHeading="We are dedicated to providing you with a seamless and hassle-free booking experience for all your travel needs. Our platform offers a wide range of airlines, routes, and flights, giving you the freedom to choose the best option for your travel plans. Whether you're traveling for business or leisure, we've got you covered with our user-friendly interface that allows you to easily search, compare, and book flights."
         />
 
         <SectionFounder />
@@ -41,8 +38,6 @@ const PageAbout: FC<PageAboutProps> = ({ className = "" }) => {
         </div>
 
         <SectionStatistic />
-
-        <SectionSubscribe2 />
       </div>
     </div>
   );

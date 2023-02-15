@@ -28,9 +28,9 @@ const MainNav1: FC<MainNav1Props> = ({ className = "" }) => {
             <SwitchDarkMode />
             <SearchDropdown />
             <div className="px-1" />
-            <ButtonSecondary href="/login">Login</ButtonSecondary>
+            <ButtonSecondary href="/account/login">Login</ButtonSecondary>
             <div className="px-1" />
-            <ButtonPrimary href="/signup">Sign up</ButtonPrimary>
+            <ButtonPrimary href="/account/signup">Sign up</ButtonPrimary>
           </div>
           <div className="flex xl:hidden items-center">
             <SwitchDarkMode />
