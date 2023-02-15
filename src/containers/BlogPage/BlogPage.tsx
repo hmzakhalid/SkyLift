@@ -18,7 +18,7 @@ const BlogPage: React.FC = () => {
   return (
     <div className="nc-BlogPage overflow-hidden relative">
       <Head>
-        <title>Blog || Booking React Template</title>
+        <title>Blog || Elevate Your Traveling Experience</title>
       </Head>
 
       {/* ======== BG GLASS ======== */}

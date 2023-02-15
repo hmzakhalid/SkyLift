@@ -73,7 +73,7 @@ const ListingCarPage: FC<ListingCarPageProps> = ({ className = "" }) => {
       data-nc-id="ListingCarPage"
     >
       <Head>
-        <title>SkyLift || Booking React Template</title>
+        <title>SkyLift || Elevate Your Traveling Experience</title>
       </Head>
       <BgGlassmorphism />
 

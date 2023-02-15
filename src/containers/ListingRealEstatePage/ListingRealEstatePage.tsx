@@ -85,7 +85,7 @@ const ListingRealEstatePage: FC<ListingRealEstatePageProps> = ({
       data-nc-id="ListingRealEstatePage"
     >
       <Head>
-        <title>SkyLift || Booking React Template</title>
+        <title>SkyLift || Elevate Your Traveling Experience</title>
       </Head>
 
       <div className="container relative">

@@ -7,7 +7,7 @@ import I404Png from "images/404.png";
 const Page404: React.FC = () => (
   <div className="nc-Page404">
     <Head>
-      <title>404 || Booking React Template</title>
+      <title>404 || Elevate Your Traveling Experience</title>
     </Head>
     <div className="container relative pt-5 pb-16 lg:pb-20 lg:pt-5">
       {/* HEADER */}
