@@ -93,7 +93,7 @@ const SectionClientSay: FC<SectionClientSayProps> = ({
       className={`nc-SectionClientSay relative ${className} `}
       data-nc-id="SectionClientSay"
     >
-      <Heading desc="Let's see what people think of SkyLift" isCenter>
+      <Heading desc="Let's see what people think of FisWing" isCenter>
         Don't take if from us!
       </Heading>
       <div className="relative md:mb-16 max-w-2xl mx-auto">

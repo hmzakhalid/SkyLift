@@ -74,7 +74,7 @@ const ListingExperiencesPage: FC<ListingExperiencesPageProps> = ({
       data-nc-id="ListingExperiencesPage"
     >
       <Head>
-        <title>SkyLift || Elevate Your Traveling Experience</title>
+        <title>FisWing || Elevate Your Traveling Experience</title>
       </Head>
       <BgGlassmorphism />
 

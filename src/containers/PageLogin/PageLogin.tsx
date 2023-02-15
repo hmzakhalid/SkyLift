@@ -30,14 +30,19 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
   const [password, setPassword] = useState("");
 
   const loginUser = async () => {
-    const res: any = await signIn("credentials", {
+  await signIn("credentials", {
       redirect: false,
       email: email,
       password: password,
       callbackUrl: `${window.location.origin}`,
+    }).then((res) => {
+      console.log(res);
+      if (res.status === 200) {
+        Router.push("/");
+      }
+    }).catch((err) => {
+      console.log(err);
     });
-
-    res.error ? console.log(res.error) :Router.push("/");
   };
 
   return (

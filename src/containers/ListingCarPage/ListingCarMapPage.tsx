@@ -20,7 +20,7 @@ const ListingCarMapPage: FC<ListingCarMapPageProps> = ({ className = "" }) => {
       data-nc-id="ListingCarMapPage"
     >
       <Head>
-        <title>SkyLift || Elevate Your Traveling Experience</title>
+        <title>FisWing || Elevate Your Traveling Experience</title>
       </Head>
       <BgGlassmorphism />
 

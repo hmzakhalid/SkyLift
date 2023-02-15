@@ -85,7 +85,7 @@ const ListingRealEstatePage: FC<ListingRealEstatePageProps> = ({
       data-nc-id="ListingRealEstatePage"
     >
       <Head>
-        <title>SkyLift || Elevate Your Traveling Experience</title>
+        <title>FisWing || Elevate Your Traveling Experience</title>
       </Head>
 
       <div className="container relative">

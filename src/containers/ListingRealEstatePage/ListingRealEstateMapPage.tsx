@@ -32,7 +32,7 @@ const ListingRealEstateMapPage: FC<ListingRealEstateMapPageProps> = ({
       data-nc-id="ListingRealEstateMapPage"
     >
       <Head>
-        <title>SkyLift || Elevate Your Traveling Experience</title>
+        <title>FisWing || Elevate Your Traveling Experience</title>
       </Head>
 
       {/* SECTION HERO */}

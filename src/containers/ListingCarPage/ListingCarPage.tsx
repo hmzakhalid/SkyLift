@@ -73,7 +73,7 @@ const ListingCarPage: FC<ListingCarPageProps> = ({ className = "" }) => {
       data-nc-id="ListingCarPage"
     >
       <Head>
-        <title>SkyLift || Elevate Your Traveling Experience</title>
+        <title>FisWing || Elevate Your Traveling Experience</title>
       </Head>
       <BgGlassmorphism />
 
