@@ -9,7 +9,7 @@ const CheckOut: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Checkout - SkyLift</title>
+        <title>Checkout - FisWing</title>
       </Head>
       <div className="bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200">
         <SiteHeader />

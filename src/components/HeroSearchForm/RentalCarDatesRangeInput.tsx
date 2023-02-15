@@ -31,6 +31,7 @@ export interface RentalCarDatesRangeInputProps {
   anchorDirection?: AnchorDirectionShape;
   buttonSubmitHref?: PathName;
   hasButtonSubmit?: boolean;
+  buttonSubmitFunction?: any
 }
 
 const RentalCarDatesRangeInput: FC<RentalCarDatesRangeInputProps> = ({
@@ -46,6 +47,7 @@ const RentalCarDatesRangeInput: FC<RentalCarDatesRangeInputProps> = ({
   anchorDirection,
   buttonSubmitHref = "/listing-car",
   hasButtonSubmit = true,
+  buttonSubmitFunction
 }) => {
   const [focusedInput, setFocusedInput] = useState(defaultFocus);
   const [stateDate, setStateDate] = useState(defaultDateValue);
@@ -72,9 +74,8 @@ const RentalCarDatesRangeInput: FC<RentalCarDatesRangeInputProps> = ({
     const focused = focusedInput === "startDate";
     return (
       <div
-        className={`flex flex-1 relative  ${fieldClassName} items-center space-x-3 cursor-pointer ${
-          focused ? "nc-hero-field-focused" : " "
-        }`}
+        className={`flex flex-1 relative  ${fieldClassName} items-center space-x-3 cursor-pointer ${focused ? "nc-hero-field-focused" : " "
+          }`}
       >
         <div className="text-neutral-300 dark:text-neutral-400">
           <svg
@@ -116,9 +117,8 @@ const RentalCarDatesRangeInput: FC<RentalCarDatesRangeInputProps> = ({
     const focused = focusedInput === "endDate";
     return (
       <div
-        className={`flex relative flex-[1.8] items-center cursor-pointer ${
-          focused ? "nc-hero-field-focused" : " "
-        }`}
+        className={`flex relative flex-[1.8] items-center cursor-pointer ${focused ? "nc-hero-field-focused" : " "
+          }`}
       >
         <div className={`flex-1 flex ${fieldClassName} space-x-3 items-center`}>
           <div className="text-neutral-300 dark:text-neutral-400">
@@ -155,7 +155,9 @@ const RentalCarDatesRangeInput: FC<RentalCarDatesRangeInputProps> = ({
         </div>
         {hasButtonSubmit && (
           <div className="pr-2 xl:pr-4 relative z-20">
-            <ButtonSubmit href={buttonSubmitHref} />
+            <ButtonSubmit
+              onClick={buttonSubmitFunction}
+              href={buttonSubmitHref} />
           </div>
         )}
       </div>
@@ -164,9 +166,8 @@ const RentalCarDatesRangeInput: FC<RentalCarDatesRangeInputProps> = ({
 
   return (
     <div
-      className={`RentalCarDatesRangeInput relative flex z-10 ${className}  ${
-        !!focusedInput ? "nc-date-focusedInput" : "nc-date-not-focusedInput"
-      }`}
+      className={`RentalCarDatesRangeInput relative flex z-10 ${className}  ${!!focusedInput ? "nc-date-focusedInput" : "nc-date-not-focusedInput"
+        }`}
     >
       <div className="absolute inset-0 flex">
         <DateRangePicker

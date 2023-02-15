@@ -32,7 +32,7 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
         <span className="uppercase text-sm text-gray-400 tracking-widest">
           Benefits
         </span>
-        <h2 className="font-semibold text-4xl mt-5">Why SkyLift? </h2>
+        <h2 className="font-semibold text-4xl mt-5">Why FisWing? </h2>
 
         <ul className="space-y-10 mt-16">
           <li className="space-y-4">
@@ -41,7 +41,7 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
               Flight booking made easy
             </span>
             <span className="block mt-5 text-neutral-500 dark:text-neutral-400">
-              With SkyLift, quickly and easily find your flight of choice
+              With FisWing, quickly and easily find your flight of choice
             </span>
           </li>
           <li className="space-y-4">
