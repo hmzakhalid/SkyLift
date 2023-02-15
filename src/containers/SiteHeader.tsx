@@ -14,7 +14,7 @@ const SiteHeader = () => {
 
   useEffect(() => {
     setIsTopOfPage(window.pageYOffset < 5);
-    if(session) {
+    if(!session) {
       setHeaderSelected("Header 2");
     }
     else {
