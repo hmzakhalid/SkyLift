@@ -51,9 +51,12 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
   let ticketDets = {}
   useEffect(() => {
     ticketDets = JSON.parse(localStorage.getItem('checkoutDets')!);
-    // setRangeDates({
-    //   startDate: ticketDets.
-    // });
+    const currentDates = JSON.parse(localStorage.getItem("currentDates")!)
+    console.log(currentDates);
+    setRangeDates({
+      startDate: moment(currentDates.startDate),
+      endDate: moment(currentDates.endDate),
+    });
     setPrice(ticketDets.price);
     setAirline(ticketDets.airline);
     setPickUpInputValue(defaultPickUpInputValue);

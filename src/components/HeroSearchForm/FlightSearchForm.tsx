@@ -66,15 +66,15 @@ const FlightSearchForm: FC<FlightSearchFormProps> = ({ haveDefaultValue }) => {
   const [flightClassState, setFlightClassState] = useState("Economy");
 
 
-  const uploadToLocalStoarge = () => {
+  // const uploadToLocalStoarge = () => {
 
-    localStorage.setItem("pickUpInputValue", pickUpInputValue);
-    localStorage.setItem("dropOffInputValue", dropOffInputValue);
-    localStorage.setItem("startDate", dateRangeValue.startDate!?.format("YYYY-MM-DD"));
-    localStorage.setItem("endDate", dateRangeValue.endDate!?.format("YYYY-MM-DD"));
-    localStorage.setItem("guests", guests.toString());
-    localStorage.setItem("flightClassState", flightClassState);
-  };
+  //   localStorage.setItem("pickUpInputValue", pickUpInputValue);
+  //   localStorage.setItem("dropOffInputValue", dropOffInputValue);
+  //   localStorage.setItem("startDate", dateRangeValue.startDate!?.format("YYYY-MM-DD"));
+  //   localStorage.setItem("endDate", dateRangeValue.endDate!?.format("YYYY-MM-DD"));
+  //   localStorage.setItem("guests", guests.toString());
+  //   localStorage.setItem("flightClassState", flightClassState);
+  // };
 
   // USER EFFECT
   useEffect(() => {
@@ -257,11 +257,12 @@ const FlightSearchForm: FC<FlightSearchFormProps> = ({ haveDefaultValue }) => {
               onFocusChange={(focus) => setFieldFocused(focus)}
               onChange={(data) => {
                 setDateRangeValue(data.stateDate);
+                localStorage.setItem("currentDates", JSON.stringify(data.stateDate));
                 // setTimeRangeValue(data.stateTimeRage);
               }}
               className="flex-1"
               buttonSubmitHref="/listing-flights"
-              buttonSubmitFunction={uploadToLocalStoarge}
+              // buttonSubmitFunction={uploadToLocalStoarge}
             />
           </div>
 
