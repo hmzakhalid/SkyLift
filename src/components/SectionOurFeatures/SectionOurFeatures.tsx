@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import rightImgPng from "images/our-features.png";
-import NcImage from "shared/NcImage/NcImage";
 import Badge from "shared/Badge/Badge";
+import Image from "next/image";
 
 export interface SectionOurFeaturesProps {
   className?: string;
@@ -22,7 +22,7 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
       data-nc-id="SectionOurFeatures"
     >
       <div className="flex-grow">
-        <NcImage src={rightImg} />
+        <Image src={rightImg} alt="our-features" />
       </div>
       <div
         className={`max-w-2xl flex-shrink-0 mt-10 lg:mt-0 lg:w-2/5 ${
@@ -30,39 +30,36 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
         }`}
       >
         <span className="uppercase text-sm text-gray-400 tracking-widest">
-          BENnefits
+          Benefits
         </span>
-        <h2 className="font-semibold text-4xl mt-5">Happening cities </h2>
+        <h2 className="font-semibold text-4xl mt-5">Why SkyLift? </h2>
 
         <ul className="space-y-10 mt-16">
           <li className="space-y-4">
-            <Badge name="Advertising" />
+            <Badge name="Convenience" />
             <span className="block text-xl font-semibold">
-              Cost-effective advertising
+              Flight booking made easy
             </span>
             <span className="block mt-5 text-neutral-500 dark:text-neutral-400">
-              With a free listing, you can advertise your rental with no upfront
-              costs
+              With SkyLift, quickly and easily find your flight of choice
             </span>
           </li>
           <li className="space-y-4">
-            <Badge color="green" name="Exposure " />
+            <Badge color="green" name="Value" />
             <span className="block text-xl font-semibold">
-              Reach millions with Chisfis
+              Flights available at amazing prices
             </span>
             <span className="block mt-5 text-neutral-500 dark:text-neutral-400">
-              Millions of people are searching for unique places to stay around
-              the world
+              Pricing is competitive and cheap for all flights available
             </span>
           </li>
           <li className="space-y-4">
-            <Badge color="red" name="Secure" />
+            <Badge color="red" name="Support" />
             <span className="block text-xl font-semibold">
-              Secure and simple
+              24/7 Support
             </span>
             <span className="block mt-5 text-neutral-500 dark:text-neutral-400">
-              A Holiday Lettings listing gives you a secure and easy way to take
-              bookings and payments online
+              Any problems may be discussed with support staff to make your experience as comfortable as possible
             </span>
           </li>
         </ul>

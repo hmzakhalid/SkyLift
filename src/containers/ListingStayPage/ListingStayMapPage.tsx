@@ -6,7 +6,7 @@ import SectionHeroArchivePage from "components/SectionHeroArchivePage/SectionHer
 import SectionSliderNewCategories from "components/SectionSliderNewCategories/SectionSliderNewCategories";
 import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import SectionGridHasMap from "./SectionGridHasMap";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 
 export interface ListingStayMapPageProps {
   className?: string;
@@ -20,9 +20,9 @@ const ListingStayMapPage: FC<ListingStayMapPageProps> = ({
       className={`nc-ListingStayMapPage relative ${className}`}
       data-nc-id="ListingStayMapPage"
     >
-      <Helmet>
-        <title>Chisfis || Booking React Template</title>
-      </Helmet>
+      <Head>
+        <title>SkyLift || Elevate Your Traveling Experience</title>
+      </Head>
       <BgGlassmorphism />
 
       {/* SECTION HERO */}

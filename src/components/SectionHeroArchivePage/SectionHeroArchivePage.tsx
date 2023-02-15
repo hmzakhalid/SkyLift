@@ -3,11 +3,12 @@ import imagePng from "images/hero-right2.png";
 import HeroSearchForm, {
   SearchTab,
 } from "components/HeroSearchForm/HeroSearchForm";
+import Image from "next/image";
 
 export interface SectionHeroArchivePageProps {
   className?: string;
   listingType?: ReactNode;
-  currentPage: "Stays" | "Experiences" | "Cars" | "Flights";
+  currentPage:  "Flights";
   currentTab: SearchTab;
   rightImage?: string;
 }
@@ -44,7 +45,7 @@ const SectionHeroArchivePage: FC<SectionHeroArchivePageProps> = ({
           </div>
         </div>
         <div className="flex-grow">
-          <img className="w-full" src={rightImage} alt="hero" />
+          <Image className="w-full" src={rightImage} alt="hero" />
         </div>
       </div>
 
