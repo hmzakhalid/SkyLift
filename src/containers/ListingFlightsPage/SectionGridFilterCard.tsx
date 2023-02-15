@@ -96,16 +96,15 @@ const SectionGridFilterCard: FC<SectionGridFilterCardProps> = ({
         heading="Singapore - Tokyo"
         subHeading={
           <span className="block text-neutral-500 dark:text-neutral-400 mt-3">
-            22 flights
+            10+ flights
             <span className="mx-2">·</span>
             round trip
-            <span className="mx-2">·</span>2 Guests
           </span>
         }
       />
-      <div className="mb-8 lg:mb-11">
+      {/* <div className="mb-8 lg:mb-11">
         <TabFilters />
-      </div>
+      </div> */}
       <div className="lg:p-10 lg:bg-neutral-50 lg:dark:bg-black/20 grid grid-cols-1 gap-6  rounded-3xl">
         {flights.map((item, index) => (
           <FlightCard key={index} data={item} />
