@@ -4,6 +4,10 @@ import {
   type NextAuthOptions,
   type DefaultSession,
 } from "next-auth";
+
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
+import clientPromise from "utils/mongodb"
+
 import DiscordProvider from "next-auth/providers/discord";
 import { env } from "../env.mjs";
 
@@ -36,6 +40,7 @@ declare module "next-auth" {
  * @see https://next-auth.js.org/configuration/options
  **/
 export const authOptions: NextAuthOptions = {
+  adapter: MongoDBAdapter(clientPromise),
   callbacks: {
     session({ session, user }) {
       if (session.user) {
