@@ -19,14 +19,14 @@ import { GuestsObject } from "components/HeroSearchForm2Mobile/GuestsInput";
 import LocationInput from "components/HeroSearchForm/LocationInput";
 // import airplaneTicket from "../../images/avatars/"
 
-import { AnyCnameRecord } from "dns";
 
 
 import { Elements } from '@stripe/react-stripe-js';
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { loadStripe } from '@stripe/stripe-js';
+import axios from "axios";
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!);
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 
 
@@ -53,9 +53,8 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
   const [airline, setAirline] = useState("");
   const [pickUpInputValue, setPickUpInputValue] = useState("");
   const [dropOffInputValue, setDropOffInputValue] = useState("");
-  let ticketDets = {}
   useEffect(() => {
-    ticketDets = JSON.parse(localStorage.getItem('checkoutDets')!);
+    let ticketDets = JSON.parse(localStorage.getItem('checkoutDets')!);
     const currentDates = JSON.parse(localStorage.getItem("currentDates")!)
     console.log(currentDates);
     setRangeDates({
@@ -99,7 +98,7 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
         <div className="flex flex-col space-y-4">
           <h3 className="text-2xl font-semibold">Price detail</h3>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-          <span>Ticket Cost</span>
+            <span>Ticket Cost</span>
             <span>${price}</span>
           </div>
           <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
@@ -124,45 +123,47 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
     const [cvv, setCvv] = useState('');
 
 
+
     const handleSubmit = async (event: any) => {
       event.preventDefault();
-      const stripe = useStripe();
       const elements = useElements();
+      const stripe = await stripePromise;
 
-      // Get the card information from the form
-      const cardElement = elements!.getElement(CardElement);
+      if (!stripe || !elements) {
+        console.log('stripe or elements is null');
+        return;
+      }
 
-      // Create a payment method using the Stripe API
-      stripe!.createPaymentMethod({
-        type: "card",
-        card: cardElement!,
-        billing_details: {
-          name: cardHolder,
-        },
-      })
-        .then((result) => {
-          if (result.error) {
-            // Handle errors in the payment method creation
-            console.error(result.error.message);
-          } else {
-            // Make a payment with the payment method
-            fetch("/api/pay", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ payment_method_id: result.paymentMethod.id }),
-            })
-              .then((response) => {
-                // Handle the response from the server
-                console.log(response);
-              })
-              .catch((error) => {
-                // Handle errors in the payment
-                console.error(error);
-              });
-          }
-        });
+      const cardElement = elements.getElement(CardElement);
+
+      if (!cardElement) {
+        console.log('cardElement is null');
+        return;
+      }
+
+      const { error, paymentMethod } = await stripe.createPaymentMethod({
+        type: 'card',
+        card: cardElement,
+      });
+
+      if (error) {
+        console.log('[error]', error);
+      }
+      else {
+        console.log('[PaymentMethod]', paymentMethod);
+
+        const { id } = paymentMethod;
+
+        try {
+          const { data } = await axios.post('/api/pay', {
+            id,
+            amount: price * 100,
+          });
+          console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
+      }
     }
 
 
@@ -237,7 +238,6 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
           <div className="mt-6">
             <Tab.Group>
               <Elements stripe={stripePromise}>
-                <form onSubmit={handleSubmit}>
                   <Tab.List className="flex my-5">
                     <Tab as={Fragment}>
                       {({ selected }) => (
@@ -307,9 +307,10 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
                       </div>
                     </Tab.Panel>
                   </Tab.Panels>
-                </form>
                 <div className="pt-8">
-                  <ButtonPrimary type="submit">Confirm and pay</ButtonPrimary>
+                  <ButtonPrimary 
+                  href="/pay-done"
+                  >Confirm and pay</ButtonPrimary>
                 </div>
 
               </Elements>
