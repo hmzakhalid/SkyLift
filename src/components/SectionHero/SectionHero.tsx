@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import ButtonPrimary from "shared/Button/ButtonPrimary";
 import imagePng from "images/hero-right.png";
 import HeroSearchForm from "components/HeroSearchForm/HeroSearchForm";
+import Image from "next/image";
 
 export interface SectionHeroProps {
   className?: string;
@@ -25,7 +26,7 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
           <ButtonPrimary>Start your search</ButtonPrimary>
         </div>
         <div className="flex-grow">
-          <img className="w-full" src={imagePng} alt="hero" />
+          <Image className="w-full" src={imagePng} alt="hero" />
         </div>
       </div>
 
