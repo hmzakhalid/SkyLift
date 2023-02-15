@@ -1,8 +1,9 @@
 import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import React, { FC, Fragment, useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
 import NcImage from "shared/NcImage/NcImage";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 // <--- NavItemType --->
 export interface MegamenuItem {
@@ -116,17 +117,16 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
   const renderMegaMenuNavlink = (item: NavItemType) => {
     return (
       <li key={item.id}>
-        <NavLink
-          end
+        <Link
           target={item.targetBlank ? "_blank" : undefined}
           rel="noopener noreferrer"
-          className={({ isActive }) =>
-            `inline-flex items-center py-1 px-2 rounded hover:text-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 font-normal text-neutral-6000 dark:text-neutral-300 `
-          }
+
+          className="inline-flex items-center py-1 px-2 rounded hover:text-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 font-normal text-neutral-6000 dark:text-neutral-300"
+          
           href={item.href || ""}
         >
           {item.name}
-        </NavLink>
+        </Link>
       </li>
     );
   };
@@ -233,15 +233,15 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
   };
 
   const renderDropdownMenuNavlink = (item: NavItemType) => {
+    const location = useRouter();
+
     return (
-      <NavLink
-        end
+      <Link
         target={item.targetBlank ? "_blank" : undefined}
         rel="noopener noreferrer"
-        className={({ isActive }) =>
-          `flex items-center font-normal text-neutral-6000 dark:text-neutral-300 py-2 px-4 rounded-md hover:text-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 ${
-            isActive ? "!font-medium  dark:!text-neutral-100" : ""
-          }`
+        className={
+          `flex items-center font-normal text-neutral-6000 dark:text-neutral-300 py-2 px-4 rounded-md hover:text-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200
+          ${ location.pathname === item.href ? "!font-medium  dark:!text-neutral-100" : "" }`
         }
         href={item.href || ""}
       >
@@ -252,24 +252,20 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
             aria-hidden="true"
           />
         )}
-      </NavLink>
+      </Link>
     );
   };
 
   // ===================== MENU MAIN MENU =====================
   const renderMainItem = (item: NavItemType) => {
+    const location = useRouter();
+
     return (
-      <NavLink
-        end
+      <Link
         target={item.targetBlank ? "_blank" : undefined}
         rel="noopener noreferrer"
-        className={({ isActive }) =>
-          `inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-300 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 ${
-            isActive
-              ? "!font-semibold !text-neutral-900 bg-neutral-100 dark:bg-neutral-800 dark:!text-neutral-100"
-              : ""
-          }`
-        }
+        className= {`flex items-center font-normal text-neutral-6000 dark:text-neutral-300 py-2 px-4 rounded-md hover:text-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200
+        ${ location.pathname === item.href ? "!font-medium  dark:!text-neutral-100" : "" }`}
         href={item.href || "/"}
       >
         {item.name}
@@ -279,7 +275,7 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
             aria-hidden="true"
           />
         )}
-      </NavLink>
+      </Link>
     );
   };
 

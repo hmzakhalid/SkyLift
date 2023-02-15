@@ -1,57 +1,60 @@
 import React from "react";
-import { FC } from "react";
-import { NavLink } from "react-router-dom";
+import { FC, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export interface CommonLayoutProps {
   children?: React.ReactNode;
 }
 
 const CommonLayout: FC<CommonLayoutProps> = ({ children }) => {
+  const location = useRouter();
+
   return (
     <div className="nc-CommonLayoutProps bg-neutral-50 dark:bg-neutral-900">
       <div className="border-b border-neutral-200 dark:border-neutral-700 pt-12 bg-white dark:bg-neutral-800">
         <div className="container">
           <div className="flex space-x-8 md:space-x-14 overflow-x-auto hiddenScrollbar">
-            <NavLink
+            <Link
               href="/account"
-              className={({ isActive }) =>
-                `block py-5 md:py-8 border-b-2 flex-shrink-0 ${
-                  isActive ? "border-transparent" : "border-primary-500"
-                }`
-              }
+              className={ `block py-5 md:py-8 border-b-2 flex-shrink-0 ${
+                location.pathname === "/account"
+                  ? "border-transparent"
+                  : "border-primary-500"
+              }`}
             >
               Account info
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
               href="/account-savelists"
-              className={({ isActive }) =>
-                `block py-5 md:py-8 border-b-2 flex-shrink-0 ${
-                  isActive ? "border-transparent" : "border-primary-500"
-                }`
-              }
+              className={ `block py-5 md:py-8 border-b-2 flex-shrink-0 ${
+                location.pathname === "/account-savelists"
+                  ? "border-transparent"
+                  : "border-primary-500"
+              }`}
             >
               Save lists
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
               href="/account-password"
-              className={({ isActive }) =>
-                `block py-5 md:py-8 border-b-2 flex-shrink-0 ${
-                  isActive ? "border-transparent" : "border-primary-500"
-                }`
-              }
+              className={ `block py-5 md:py-8 border-b-2 flex-shrink-0 ${
+                location.pathname === "/account-password"
+                  ? "border-transparent"
+                  : "border-primary-500"
+              }`}
             >
               Change password
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
               href="/account-billing"
-              className={({ isActive }) =>
-                `block py-5 md:py-8 border-b-2 flex-shrink-0 ${
-                  isActive ? "border-transparent" : "border-primary-500"
-                }`
-              }
+              className={ `block py-5 md:py-8 border-b-2 flex-shrink-0 ${
+                location.pathname === "/account-billing"
+                  ? "border-transparent"
+                  : "border-primary-500"
+              }`}
             >
               Change Billing
-            </NavLink>
+            </Link>
           </div>
         </div>
       </div>

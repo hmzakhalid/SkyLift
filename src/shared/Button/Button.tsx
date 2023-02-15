@@ -1,5 +1,6 @@
 import React, { ButtonHTMLAttributes, FC } from "react";
-import { Link, LinkProps } from "react-router-dom";
+import { LinkProps } from "react-router-dom";
+import Link from "next/link";
 import { LocationStates } from "routers/types";
 import twFocusClass from "utils/twFocusClass";
 

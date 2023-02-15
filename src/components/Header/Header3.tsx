@@ -17,10 +17,12 @@ interface Header3Props {
   className?: string;
 }
 
-let WIN_PREV_POSITION = window.pageYOffset;
 
 const Header3: FC<Header3Props> = ({ className = "" }) => {
   const headerInnerRef = useRef<HTMLDivElement>(null);
+  let WIN_PREV_POSITION: number = 0;
+
+
   //
   const [showHeroSearch, setShowHeroSearch] =
     useState<StaySearchFormFields | null>();
@@ -38,10 +40,12 @@ const Header3: FC<Header3Props> = ({ className = "" }) => {
 
   useEffect(() => {
     setShowHeroSearch(null);
+
   }, [location]);
 
   // HIDDEN WHEN SCROLL EVENT
   useEffect(() => {
+    WIN_PREV_POSITION = window.pageYOffset
     window.addEventListener("scroll", handleEvent);
     return () => {
       window.removeEventListener("scroll", handleEvent);

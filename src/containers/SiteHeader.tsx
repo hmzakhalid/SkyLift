@@ -58,7 +58,7 @@ const SiteHeader = () => {
   const [headerSelected, setHeaderSelected] =
     React.useState<SiteHeaders>("Header 1");
 
-  const [isTopOfPage, setIsTopOfPage] = React.useState(window.pageYOffset < 5);
+  const [isTopOfPage, setIsTopOfPage] = React.useState<boolean>(true);
   const location = useRouter();
 
   const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
@@ -66,6 +66,11 @@ const SiteHeader = () => {
       setIsTopOfPage(entry.isIntersecting);
     });
   };
+
+  useEffect(() => {
+    setIsTopOfPage(window.pageYOffset < 5);
+  }, []);
+
 
   useEffect(() => {
     if (location.pathname === "/home-2") {

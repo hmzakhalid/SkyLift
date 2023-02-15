@@ -2,7 +2,8 @@ import React from "react";
 import ButtonClose from "shared/ButtonClose/ButtonClose";
 import Logo from "shared/Logo/Logo";
 import { Disclosure } from "@headlessui/react";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { NavItemType } from "./NavigationItem";
 import { NAVIGATION_DEMO } from "data/navigation";
 import ButtonPrimary from "shared/Button/ButtonPrimary";
@@ -20,19 +21,19 @@ const NavMobile: React.FC<NavMobileProps> = ({
   data = NAVIGATION_DEMO,
   onClickClose,
 }) => {
+  const location = useRouter();
   const _renderMenuChild = (item: NavItemType) => {
     return (
       <ul className="nav-mobile-sub-menu pl-6 pb-1 text-base">
         {item.children?.map((i, index) => (
           <Disclosure key={i.href + index} as="li">
-            <NavLink
-              end
+            <Link
               href={{
                 pathname: i.href || undefined,
               }}
-              className={({ isActive }) =>
+              className={
                 `flex px-4 text-neutral-900 dark:text-neutral-200 text-sm font-medium rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 mt-0.5 ${
-                  isActive ? "text-secondary" : ""
+                  location.pathname === i.href ? "text-secondary" : ""
                 }`
               }
             >
@@ -57,7 +58,7 @@ const NavMobile: React.FC<NavMobileProps> = ({
                   </Disclosure.Button>
                 </span>
               )}
-            </NavLink>
+            </Link>
             {i.children && (
               <Disclosure.Panel>{_renderMenuChild(i)}</Disclosure.Panel>
             )}
@@ -68,19 +69,19 @@ const NavMobile: React.FC<NavMobileProps> = ({
   };
 
   const _renderItem = (item: NavItemType, index: number) => {
+    const location = useRouter();
+
     return (
       <Disclosure
         key={item.id}
         as="li"
         className="text-neutral-900 dark:text-white"
       >
-        <NavLink
-          end
-          className={({ isActive }) =>
-            `flex w-full px-4 font-medium uppercase tracking-wide text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg ${
-              isActive ? "text-secondary" : ""
-            }`
-          }
+        <Link
+        className= {`
+          flex w-full px-4 font-medium uppercase tracking-wide text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg ${
+            location.pathname === item.href ? "text-secondary" : ""
+            }`}
           href={{
             pathname: item.href || undefined,
           }}
@@ -103,7 +104,7 @@ const NavMobile: React.FC<NavMobileProps> = ({
               </Disclosure.Button>
             </span>
           )}
-        </NavLink>
+        </Link>
         {item.children && (
           <Disclosure.Panel>{_renderMenuChild(item)}</Disclosure.Panel>
         )}
