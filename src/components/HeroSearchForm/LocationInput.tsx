@@ -161,7 +161,7 @@ const LocationInput: FC<LocationInputProps> = ({
   return (
     <div className={`relative flex ${className}`} ref={containerRef}>
       <div
-        onClick={() => setShowPopover(true)}
+        // onClick={() => setShowPopover(true)}
         className={`flex flex-1 relative [ nc-hero-field-padding ] flex-shrink-0 items-center space-x-3 cursor-pointer focus:outline-none text-left  ${
           showPopover ? "nc-hero-field-focused" : ""
         }`}

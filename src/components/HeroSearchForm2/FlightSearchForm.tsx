@@ -42,7 +42,7 @@ const flightClass = [
 
 const FlightSearchForm: FC<FlightSearchFormProps> = ({ haveDefaultValue }) => {
   // DEFAULT DATA FOR ARCHIVE PAGE
-  const defaultPickUpInputValue = "Tokyo, Jappan";
+  const defaultPickUpInputValue = "Tokyo, Japan";
   const defaultDropOffInputValue = "Paris, France";
 
   // USE STATE
