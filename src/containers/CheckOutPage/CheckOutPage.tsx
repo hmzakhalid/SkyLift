@@ -20,6 +20,10 @@ import { GuestsObject } from "components/HeroSearchForm2Mobile/GuestsInput";
 import LocationInput from "components/HeroSearchForm/LocationInput";
 // import airplaneTicket from "../../images/avatars/"
 
+import Stripe from "utils/get-stripejs";
+
+
+
 export interface CheckOutPageProps {
   className?: string;
 }
@@ -37,7 +41,7 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
   });
 
   const defaultPickUpInputValue = "Tokyo, Japan";
-  const defaultDropOffInputValue = "Paris, France";
+  const defaultDropOffInputValue = "City, Singapore";
 
   const [pickUpInputValue, setPickUpInputValue] = useState("");
   const [dropOffInputValue, setDropOffInputValue] = useState("");
