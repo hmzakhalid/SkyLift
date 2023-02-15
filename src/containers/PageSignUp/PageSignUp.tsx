@@ -1,28 +1,21 @@
-import React, { FC } from "react";
-import facebookSvg from "images/Facebook.svg";
-import twitterSvg from "images/Twitter.svg";
+import React, { FC, useState } from "react";
 import googleSvg from "images/Google.svg";
-import Head from "next/head";
 import Input from "shared/Input/Input";
 import ButtonPrimary from "shared/Button/ButtonPrimary";
 import Link from 'next/link';
 import Image from "next/image";
+import axios from "axios";
+
+// AUTH
+import Router from "next/router";
+import type { NextPage } from "next";
+import { signIn, getProviders } from "next-auth/react";
 
 export interface PageSignUpProps {
   className?: string;
 }
 
 const loginSocials = [
-  {
-    name: "Continue with Facebook",
-    href: "#",
-    icon: facebookSvg,
-  },
-  {
-    name: "Continue with Twitter",
-    href: "#",
-    icon: twitterSvg,
-  },
   {
     name: "Continue with Google",
     href: "#",
@@ -31,6 +24,49 @@ const loginSocials = [
 ];
 
 const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
+  const [authType, setAuthType] = useState("Login");
+  const oppAuthType: { [key: string]: string } = {
+    Login: "Register",
+    Register: "Login",
+  };
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const registerUser = async () => {
+    const res = await axios
+      .post(
+        "/api/register",
+        { username, email, password },
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then(async (res) => {
+        console.log(res);
+        await loginUser();
+        Router.push("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const loginUser = async () => {
+    const res: any = await signIn("credentials", {
+      redirect: false,
+      email: email,
+      password: password,
+      callbackUrl: `${window.location.origin}`,
+    });
+
+    res.error ? console.log(res.error) :Router.push("/");
+  };
+
   return (
     <div className={`nc-PageSignUp  ${className}`} data-nc-id="PageSignUp">
       <div className="container mb-24 lg:mb-32">
@@ -64,15 +100,19 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
             <div className="absolute left-0 w-full top-1/2 transform -translate-y-1/2 border border-neutral-100 dark:border-neutral-800"></div>
           </div>
           {/* FORM */}
-          <form className="grid grid-cols-1 gap-6" action="#" method="post">
+          <form className="grid grid-cols-1 gap-6" action="api/register" method="post">
             <label className="block">
               <span className="text-neutral-800 dark:text-neutral-200">
                 Full Name
               </span>
               <Input
                 type="text"
+                name="name"
                 placeholder="Your name"
                 className="mt-1"
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
               />
             </label>
             <label className="block">
@@ -81,17 +121,35 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
               </span>
               <Input
                 type="email"
+                name="email"
                 placeholder="example@example.com"
                 className="mt-1"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
             </label>
             <label className="block">
               <span className="flex justify-between items-center text-neutral-800 dark:text-neutral-200">
                 Password
               </span>
-              <Input type="password" placeholder="Your password" className="mt-1" />
+              <Input 
+              type="password" 
+              name="password" 
+              placeholder="Your password" 
+              className="mt-1" 
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              />
             </label>
-            <ButtonPrimary type="submit">Continue</ButtonPrimary>
+            <ButtonPrimary 
+            type="submit"
+            onClick={(e) => {
+              e.preventDefault();
+              registerUser();
+            }}
+            >Continue</ButtonPrimary>
           </form>
 
           {/* ==== */}

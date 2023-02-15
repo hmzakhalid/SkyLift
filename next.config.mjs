@@ -20,5 +20,9 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  env: {
+    DB_URI: "mongodb+srv://cloud:cloud@cluster.t6v7jnl.mongodb.net/?retryWrites=true&w=majority",
+    NEXTAUTH_SECRET: "hamaraVerySecretKey",
+  },
 };
 export default config;
