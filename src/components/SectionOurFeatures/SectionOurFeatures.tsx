@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import rightImgPng from "images/our-features.png";
-import NcImage from "shared/NcImage/NcImage";
 import Badge from "shared/Badge/Badge";
+import Image from "next/image";
 
 export interface SectionOurFeaturesProps {
   className?: string;
@@ -22,7 +22,7 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
       data-nc-id="SectionOurFeatures"
     >
       <div className="flex-grow">
-        <NcImage src={rightImg} />
+        <Image src={rightImg} alt="our-features" />
       </div>
       <div
         className={`max-w-2xl flex-shrink-0 mt-10 lg:mt-0 lg:w-2/5 ${

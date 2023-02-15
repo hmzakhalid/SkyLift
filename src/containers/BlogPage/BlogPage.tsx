@@ -1,6 +1,6 @@
 import React from "react";
 import { DEMO_POSTS } from "data/posts";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 import SectionAds from "./SectionAds";
 import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import SectionMagazine5 from "./SectionMagazine5";
@@ -17,9 +17,9 @@ const MAGAZINE1_POSTS = POSTS.filter((_, i) => i >= 0 && i < 8);
 const BlogPage: React.FC = () => {
   return (
     <div className="nc-BlogPage overflow-hidden relative">
-      <Helmet>
-        <title>Blog || Booking React Template</title>
-      </Helmet>
+      <Head>
+        <title>Blog || Elevate Your Traveling Experience</title>
+      </Head>
 
       {/* ======== BG GLASS ======== */}
       <BgGlassmorphism />

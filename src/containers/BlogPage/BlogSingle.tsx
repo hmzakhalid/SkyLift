@@ -10,7 +10,7 @@ import Comment from "shared/Comment/Comment";
 import NcImage from "shared/NcImage/NcImage";
 import SocialsList from "shared/SocialsList/SocialsList";
 import Textarea from "shared/Textarea/Textarea";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 
 const BlogSingle = () => {
   const renderHeader = () => {
@@ -295,9 +295,9 @@ const BlogSingle = () => {
 
   return (
     <div className="nc-PageSingle pt-8 lg:pt-16 ">
-      <Helmet>
-        <title>Single Blog || Booking React Template</title>
-      </Helmet>
+      <Head>
+        <title>Single Blog || Elevate Your Traveling Experience</title>
+      </Head>
       {renderHeader()}
       <NcImage
         className="w-full rounded-xl"

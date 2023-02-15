@@ -12,6 +12,7 @@ import clientSay6 from "images/clientSay6.png";
 import quotationImg from "images/quotation.png";
 import quotationImg2 from "images/quotation2.png";
 import useNcId from "hooks/useNcId";
+import Image from "next/image";
 
 export interface SectionClientSayProps {
   className?: string;
@@ -61,28 +62,28 @@ const SectionClientSay: FC<SectionClientSayProps> = ({
   const renderBg = () => {
     return (
       <div className="hidden md:block">
-        <img className="absolute top-9 -left-20" src={clientSay1} alt="" />
-        <img
+        <Image className="absolute top-9 -left-20" src={clientSay1} alt="" />
+        <Image
           className="absolute bottom-[100px] right-full mr-40"
           src={clientSay2}
           alt=""
         />
-        <img
+        <Image
           className="absolute top-full left-[140px]"
           src={clientSay3}
           alt=""
         />
-        <img
+        <Image
           className="absolute -bottom-10 right-[140px]"
           src={clientSay4}
           alt=""
         />
-        <img
+        <Image
           className="absolute left-full ml-32 bottom-[80px]"
           src={clientSay5}
           alt=""
         />
-        <img className="absolute -right-10 top-10 " src={clientSay6} alt="" />
+        <Image className="absolute -right-10 top-10 " src={clientSay6} alt="" />
       </div>
     );
   };
@@ -97,14 +98,14 @@ const SectionClientSay: FC<SectionClientSayProps> = ({
       </Heading>
       <div className="relative md:mb-16 max-w-2xl mx-auto">
         {renderBg()}
-        <img className="mx-auto" src={clientSayMain} alt="" />
+        <Image className="mx-auto" src={clientSayMain} alt="" />
         <div className={`mt-12 lg:mt-16 relative ${UNIQUE_CLASS}`}>
-          <img
+          <Image
             className="opacity-50 md:opacity-100 absolute -mr-16 lg:mr-3 right-full top-1"
             src={quotationImg}
             alt=""
           />
-          <img
+          <Image
             className="opacity-50 md:opacity-100 absolute -ml-16 lg:ml-3 left-full top-1"
             src={quotationImg2}
             alt=""

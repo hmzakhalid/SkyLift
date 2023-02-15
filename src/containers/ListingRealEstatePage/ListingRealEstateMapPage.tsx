@@ -4,7 +4,7 @@ import SectionGridAuthorBox from "components/SectionGridAuthorBox/SectionGridAut
 import SectionSliderNewCategories from "components/SectionSliderNewCategories/SectionSliderNewCategories";
 import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import SectionGridHasMap from "./SectionGridHasMap";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 import SectionHero2ArchivePage from "components/SectionHero2ArchivePage/SectionHero2ArchivePage";
 
 export interface ListingRealEstateMapPageProps {
@@ -31,9 +31,9 @@ const ListingRealEstateMapPage: FC<ListingRealEstateMapPageProps> = ({
       className={`nc-ListingRealEstateMapPage relative ${className}`}
       data-nc-id="ListingRealEstateMapPage"
     >
-      <Helmet>
-        <title>Chisfis || Booking React Template</title>
-      </Helmet>
+      <Head>
+        <title>SkyLift || Elevate Your Traveling Experience</title>
+      </Head>
 
       {/* SECTION HERO */}
       <div className="container pb-24 lg:pb-28">

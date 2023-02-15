@@ -6,7 +6,7 @@ import SectionSliderNewCategories from "components/SectionSliderNewCategories/Se
 import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import React, { FC } from "react";
 import SectionGridFilterCard from "./SectionGridFilterCard";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 
 export interface ListingStayPageProps {
   className?: string;
@@ -18,9 +18,9 @@ const ListingStayPage: FC<ListingStayPageProps> = ({ className = "" }) => {
       className={`nc-ListingStayPage relative overflow-hidden ${className}`}
       data-nc-id="ListingStayPage"
     >
-      <Helmet>
-        <title>Chisfis || Booking React Template</title>
-      </Helmet>
+      <Head>
+        <title>SkyLift || Elevate Your Traveling Experience</title>
+      </Head>
       <BgGlassmorphism />
 
       <div className="container relative overflow-hidden">

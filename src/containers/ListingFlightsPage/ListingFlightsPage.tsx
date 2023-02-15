@@ -5,7 +5,8 @@ import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import { TaxonomyType } from "data/types";
 import React, { FC } from "react";
 import SectionGridFilterCard from "./SectionGridFilterCard";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
+import Footer from "shared/Footer/Footer";
 
 export interface ListingFlightsPageProps {
   className?: string;
@@ -72,12 +73,12 @@ const ListingFlightsPage: FC<ListingFlightsPageProps> = ({
       className={`nc-ListingFlightsPage relative overflow-hidden ${className}`}
       data-nc-id="ListingFlightsPage"
     >
-      <Helmet>
-        <title>Chisfis || Booking React Template</title>
-      </Helmet>
+      <Head>
+        <title>SkyLift || Elevate Your Traveling Experience</title>
+      </Head>
       <BgGlassmorphism />
 
-      <div className="container relative">
+      <div className="container relative mb-8">
         {/* SECTION HERO */}
         <SectionHeroArchivePage
           currentPage="Flights"
@@ -93,20 +94,8 @@ const ListingFlightsPage: FC<ListingFlightsPageProps> = ({
 
         {/* SECTION */}
         <SectionGridFilterCard className="pb-24 lg:pb-28" />
-
-        {/* SECTION 1 */}
-        <SectionSliderNewCategories
-          heading="Explore top destination ✈"
-          subHeading="Explore thousands of destinations around the world"
-          categoryCardType="card4"
-          itemPerRow={4}
-          categories={DEMO_CATS}
-          uniqueClassName="ListingFlightsPage-section1"
-        />
-
-        {/* SECTION */}
-        <SectionSubscribe2 className="py-24 lg:py-28" />
       </div>
+      <Footer />
     </div>
   );
 };
