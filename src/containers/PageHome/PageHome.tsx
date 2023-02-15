@@ -18,7 +18,7 @@ const DEMO_CATS: TaxonomyType[] = [
   {
     id: "1",
     href: "/listing-stay",
-    name: "New Yourk",
+    name: "New York",
     taxonomy: "category",
     count: 188288,
     thumbnail:

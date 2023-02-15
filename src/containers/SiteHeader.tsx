@@ -220,7 +220,7 @@ const SiteHeader = () => {
   return (
     <>
       <Head>
-        <title>Chisfis || Booking React Template</title>
+        <title>SkyLift || Booking React Template</title>
       </Head>
       {renderControlSelections()}
       {renderHeader()}

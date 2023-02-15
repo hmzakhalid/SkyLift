@@ -21,20 +21,20 @@ const DEMO_DATA: SectionHowItWorkProps["data"] = [
   {
     id: 1,
     img: HIW1img,
-    title: "Book & relax",
-    desc: "Let each trip be an inspirational journey, each room a peaceful space",
+    title: "Flight Inventory",
+    desc: "We maintain flight inventories of a number of regional and international flights",
   },
   {
     id: 2,
     img: HIW2img,
-    title: "Smart checklist",
-    desc: "Let each trip be an inspirational journey, each room a peaceful space",
+    title: "Airline relationship",
+    desc: "We keep our partner Airlines happy so they keep our customers happy",
   },
   {
     id: 3,
     img: HIW3img,
-    title: "Save more",
-    desc: "Let each trip be an inspirational journey, each room a peaceful space",
+    title: "Customer experience",
+    desc: "We offer the best deals for our customers, providing great service, all with a touch of TLC",
   },
 ];
 
@@ -48,7 +48,7 @@ const SectionHowItWork: FC<SectionHowItWorkProps> = ({
       data-nc-id="SectionHowItWork"
     >
       <Heading isCenter desc="Keep calm & travel on">
-        How it work
+        How we work
       </Heading>
       <div className="mt-20 relative grid md:grid-cols-3 gap-20">
         <img

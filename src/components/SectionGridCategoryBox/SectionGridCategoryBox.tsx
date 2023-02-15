@@ -15,7 +15,7 @@ const DEMO_CATS: TaxonomyType[] = [
   {
     id: "1",
     href: "#",
-    name: "New Yourk",
+    name: "New York",
     taxonomy: "category",
     count: 1882,
     thumbnail:
@@ -69,7 +69,7 @@ const DEMO_CATS: TaxonomyType[] = [
   {
     id: "11",
     href: "#",
-    name: "New Yourk",
+    name: "New York",
     taxonomy: "category",
     count: 1775,
     thumbnail:

@@ -24,21 +24,21 @@ const DEMO_DATA = [
     clientName: "Tiana Abie",
     clientAddress: "Malaysia",
     content:
-      "This place is exactly like the picture posted on Chisfis. Great service, we had a great stay!",
+      "Helped me find an amazing flight, cheaper than all alternatives",
   },
   {
     id: 2,
     clientName: "Lennie Swiffan",
     clientAddress: "London",
     content:
-      "This place is exactly like the picture posted on Chisfis. Great service, we had a great stay!",
+      "After my flight was delayed, I contacted support and they helped me get on another one, with a free upgrade",
   },
   {
     id: 3,
     clientName: "Berta Emili",
     clientAddress: "Tokyo",
     content:
-      "This place is exactly like the picture posted on Chisfis. Great service, we had a great stay!",
+      "Booking the flight was a breeze, and all problems were quickly and swiftly resolved!",
   },
 ];
 
@@ -92,8 +92,8 @@ const SectionClientSay: FC<SectionClientSayProps> = ({
       className={`nc-SectionClientSay relative ${className} `}
       data-nc-id="SectionClientSay"
     >
-      <Heading desc="Let's see what people think of Chisfis" isCenter>
-        Good news from far away
+      <Heading desc="Let's see what people think of SkyLift" isCenter>
+        Don't take if from us!
       </Heading>
       <div className="relative md:mb-16 max-w-2xl mx-auto">
         {renderBg()}
