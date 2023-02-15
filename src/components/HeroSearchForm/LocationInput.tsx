@@ -12,6 +12,7 @@ export interface LocationInputProps {
   desc?: string;
   className?: string;
   autoFocus?: boolean;
+  disabled?: boolean;
 }
 
 const LocationInput: FC<LocationInputProps> = ({
@@ -22,6 +23,7 @@ const LocationInput: FC<LocationInputProps> = ({
   placeHolder = "Location",
   desc = "Where are you going?",
   className = "nc-flex-1.5",
+  disabled = false
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -199,6 +201,7 @@ const LocationInput: FC<LocationInputProps> = ({
               onChange && onChange(e.currentTarget.value);
             }}
             ref={inputRef}
+            disabled={disabled}
           />
           <span className="block mt-0.5 text-sm text-neutral-400 font-light ">
             <span className="line-clamp-1">{!!value ? placeHolder : desc}</span>
