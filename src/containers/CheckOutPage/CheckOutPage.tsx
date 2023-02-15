@@ -41,8 +41,8 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
     guestInfants: 1,
   });
 
-  const defaultPickUpInputValue = "Tokyo, Japan";
-  const defaultDropOffInputValue = "City, Singapore";
+  const defaultPickUpInputValue = "City, Singapore";
+  const defaultDropOffInputValue = "Tokyo, Japan";
 
   const [price, setPrice] = useState(0);
   const [airline, setAirline] = useState("");
