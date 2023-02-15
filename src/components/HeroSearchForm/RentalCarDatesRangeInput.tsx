@@ -8,8 +8,8 @@ import {
 } from "react-dates";
 import { DateRage } from "./StaySearchForm";
 import { FC } from "react";
-import { Listbox } from "@headlessui/react";
-import { CheckIcon } from "@heroicons/react/24/solid";
+// import { Listbox } from "@headlessui/react";
+// import { CheckIcon } from "@heroicons/react/24/solid";
 import { TimeRage } from "./RentalCarSearchForm";
 import useWindowSize from "hooks/useWindowResize";
 import ButtonSubmit from "./ButtonSubmit";
@@ -20,7 +20,7 @@ type Fields = "pickUp" | "dropOff";
 
 export interface RentalCarDatesRangeInputProps {
   defaultDateValue: DateRage;
-  defaultTimeValue: TimeRage;
+  // defaultTimeValue: TimeRage;
   defaultFocus?: FocusedInputShape | null;
   onChange?: (data: { stateDate: DateRage; stateTimeRage: TimeRage }) => void;
   onFocusChange?: (focus: FocusedInputShape | null) => void;
@@ -35,7 +35,7 @@ export interface RentalCarDatesRangeInputProps {
 
 const RentalCarDatesRangeInput: FC<RentalCarDatesRangeInputProps> = ({
   defaultDateValue,
-  defaultTimeValue,
+  // defaultTimeValue,
   onChange,
   defaultFocus = null,
   onFocusChange,
@@ -49,7 +49,7 @@ const RentalCarDatesRangeInput: FC<RentalCarDatesRangeInputProps> = ({
 }) => {
   const [focusedInput, setFocusedInput] = useState(defaultFocus);
   const [stateDate, setStateDate] = useState(defaultDateValue);
-  const [stateTimeRage, setStateTimeRage] = useState(defaultTimeValue);
+  // const [stateTimeRage, setStateTimeRage] = useState(defaultTimeValue);
   const startDateId = useNcId();
   const endDateId = useNcId();
   //
@@ -66,120 +66,6 @@ const RentalCarDatesRangeInput: FC<RentalCarDatesRangeInputProps> = ({
   const handleDateFocusChange = (focus: FocusedInputShape | null) => {
     setFocusedInput(focus);
     onFocusChange && onFocusChange(focus);
-  };
-
-  const renderEditTime = (field: Fields) => {
-    const times = [
-      "12:00 AM",
-      "1:00 AM",
-      "2:00 AM",
-      "3:00 AM",
-      "4:00 AM",
-      "5:00 AM",
-      "6:00 AM",
-      "7:00 AM",
-      "8:00 AM",
-      "9:00 AM",
-      "10:00 AM",
-      "11:00 AM",
-      "12:00 PM",
-      "1:00 PM",
-      "2:00 PM",
-      "3:00 PM",
-      "4:00 PM",
-      "5:00 PM",
-      "6:00 PM",
-      "7:00 PM",
-      "8:00 PM",
-      "9:00 PM",
-      "10:00 PM",
-      "11:00 PM",
-    ];
-    let timeValue = stateTimeRage.startTime;
-    if (field === "dropOff") {
-      timeValue = stateTimeRage.endTime;
-    }
-    return (
-      <Listbox
-        value={stateTimeRage.startTime}
-        onChange={(time: string) => {
-          if (field === "pickUp") {
-            setStateTimeRage((state) => ({ ...state, startTime: time }));
-            onChange &&
-              onChange({
-                stateDate,
-                stateTimeRage: { ...stateTimeRage, startTime: time },
-              });
-            return;
-          }
-          setStateTimeRage((state) => ({ ...state, endTime: time }));
-          onChange &&
-            onChange({
-              stateDate,
-              stateTimeRage: { ...stateTimeRage, endTime: time },
-            });
-        }}
-        as="div"
-        className="relative flex-shrink-0"
-      >
-        <Listbox.Button className="focus:outline-none inline-flex items-center group">
-          <span className="text-base font-semibold">{`, ` + timeValue}</span>
-          <span className="ml-1 absolute z-20 left-full top-0 text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-100">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-              />
-            </svg>
-          </span>
-        </Listbox.Button>
-
-        <Listbox.Options className="absolute z-40 min-w-max py-1 mt-5 overflow-auto text-base bg-white dark:bg-neutral-800 rounded-md shadow-lg max-h-60 ring-1 ring-black/5 dark:ring-white/20 focus:outline-none sm:text-sm">
-          {times.map((time, index) => (
-            <Listbox.Option
-              key={index}
-              className={({ active }) =>
-                `${
-                  active
-                    ? "text-amber-900 bg-amber-100"
-                    : "text-gray-900 dark:text-neutral-200"
-                } cursor-default select-none relative py-2 pl-10 pr-4`
-              }
-              value={time}
-            >
-              {({ selected, active }) => (
-                <>
-                  <span
-                    className={`${
-                      selected ? "font-medium" : "font-normal"
-                    } block truncate`}
-                  >
-                    {time}
-                  </span>
-                  {selected ? (
-                    <span
-                      className={`${
-                        active ? "text-amber-600" : "text-amber-600"
-                      }  absolute inset-y-0 left-0 flex items-center pl-3`}
-                    >
-                      <CheckIcon className="w-5 h-5" aria-hidden="true" />
-                    </span>
-                  ) : null}
-                </>
-              )}
-            </Listbox.Option>
-          ))}
-        </Listbox.Options>
-      </Listbox>
-    );
   };
 
   const renderInputpickUpDate = () => {
@@ -215,7 +101,7 @@ const RentalCarDatesRangeInput: FC<RentalCarDatesRangeInputProps> = ({
                 ? stateDate.startDate.format("DD MMM")
                 : "Pick up"}
             </span>
-            {stateDate.startDate && renderEditTime("pickUp")}
+            {/* {stateDate.startDate && renderEditTime("pickUp")} */}
           </div>
 
           <span className="block mt-1 text-sm text-neutral-400 font-light leading-none">
@@ -260,7 +146,7 @@ const RentalCarDatesRangeInput: FC<RentalCarDatesRangeInputProps> = ({
                   ? stateDate.endDate.format("DD MMM")
                   : "Drop off"}
               </span>
-              {stateDate.endDate && renderEditTime("dropOff")}
+              {/* {stateDate.endDate && renderEditTime("dropOff")} */}
             </div>
             <span className="block mt-1 text-sm text-neutral-400 font-light leading-none">
               {stateDate.endDate ? "Drop off" : `Add date`}
@@ -289,7 +175,7 @@ const RentalCarDatesRangeInput: FC<RentalCarDatesRangeInputProps> = ({
           focusedInput={focusedInput}
           onDatesChange={(date) => {
             setStateDate(date);
-            onChange && onChange({ stateDate: date, stateTimeRage });
+            // onChange && onChange({ stateDate: date, stateTimeRage });
           }}
           onFocusChange={handleDateFocusChange}
           startDateId={startDateId}

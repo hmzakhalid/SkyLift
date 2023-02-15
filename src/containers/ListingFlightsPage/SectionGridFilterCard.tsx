@@ -94,9 +94,9 @@ const SectionGridFilterCard: FC<SectionGridFilterCardProps> = ({
           <FlightCard key={index} data={item} />
         ))}
 
-        <div className="flex mt-12 justify-center items-center">
+        {/* <div className="flex mt-12 justify-center items-center">
           <ButtonPrimary loading>Show more</ButtonPrimary>
-        </div>
+        </div> */}
       </div>
     </div>
   );
