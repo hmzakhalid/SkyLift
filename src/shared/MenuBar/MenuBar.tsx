@@ -1,7 +1,7 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { Transition, Dialog } from "@headlessui/react";
 import NavMobile from "shared/Navigation/NavMobile";
-import { useLocation } from "react-router-dom";
+import { useRouter } from "next/router";
 
 export interface MenuBarProps {
   className?: string;
@@ -13,7 +13,7 @@ const MenuBar: React.FC<MenuBarProps> = ({
 }) => {
   const [isVisable, setIsVisable] = useState(false);
 
-  const location = useLocation();
+  const location = useRouter();
 
   useEffect(() => {
     setIsVisable(false);

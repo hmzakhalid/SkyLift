@@ -32,7 +32,7 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
   const [menuCurrentHovers, setMenuCurrentHovers] = useState<string[]>([]);
 
   // CLOSE ALL MENU OPENING WHEN CHANGE HISTORY
-  const locationPathName = useLocation().pathname;
+  const locationPathName = useRouter().pathname;
   useEffect(() => {
     setMenuCurrentHovers([]);
   }, [locationPathName]);

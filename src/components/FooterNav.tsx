@@ -43,7 +43,7 @@ const FooterNav = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   //
 
-  const location = useLocation();
+  const location = useRouter();
 
   useEffect(() => {
     window.addEventListener("scroll", handleEvent);

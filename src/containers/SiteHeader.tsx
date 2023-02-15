@@ -6,7 +6,7 @@ import {
   ShoppingBagIcon as ShoppingCartIcon,
   Cog8ToothIcon as CogIcon,
 } from "@heroicons/react/24/outline";
-// import { useLocation } from "react-router-dom";
+// import { useRouter } from "next/router";
 import { useRouter } from "next/router";
 import { Popover, Transition } from "@headlessui/react";
 import { PathName } from "routers/types";
