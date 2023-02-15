@@ -1,7 +1,5 @@
-import StartRating from "components/StartRating/StartRating";
 import React, { FC } from "react";
 import ButtonPrimary from "shared/Button/ButtonPrimary";
-import NcImage from "shared/NcImage/NcImage";
 
 export interface PayPageProps {
   className?: string;
