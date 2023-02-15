@@ -20,6 +20,11 @@ import { GuestsObject } from "components/HeroSearchForm2Mobile/GuestsInput";
 import LocationInput from "components/HeroSearchForm/LocationInput";
 // import airplaneTicket from "../../images/avatars/"
 
+import Stripe from "utils/get-stripejs";
+import { AnyCnameRecord } from "dns";
+
+
+
 export interface CheckOutPageProps {
   className?: string;
 }
@@ -105,6 +110,22 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
   };
 
   const renderMain = () => {
+
+    const handleSubmit = async (event: any) => {
+      event.preventDefault();
+      const stripe = await Stripe();
+      const { error } = await stripe.redirectToCheckout({
+        mode: "payment",
+        lineItems: [{ price: "price_1J9Z2pJZ2Z2Z2Z2Z2Z2Z2Z2Z", quantity: 1 }],
+        successUrl: "https://example.com/success",
+        cancelUrl: "https://example.com/cancel",
+      });
+      if (error) {
+        console.warn("Error:", error);
+      }
+    };
+
+
     return (
       <div className="w-full flex flex-col sm:rounded-2xl sm:border border-neutral-200 dark:border-neutral-700 space-y-8 px-0 sm:p-6 xl:p-8">
         <h2 className="text-3xl lg:text-4xl font-semibold">
