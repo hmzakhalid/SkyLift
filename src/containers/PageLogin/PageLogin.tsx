@@ -2,10 +2,10 @@ import React, { FC } from "react";
 import facebookSvg from "images/Facebook.svg";
 import twitterSvg from "images/Twitter.svg";
 import googleSvg from "images/Google.svg";
-import Head from "next/head";
 import Input from "shared/Input/Input";
 import Link from 'next/link'
 import ButtonPrimary from "shared/Button/ButtonPrimary";
+import Image from "next/image";
 
 export interface PageLoginProps {
   className?: string;
@@ -32,9 +32,6 @@ const loginSocials = [
 const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
   return (
     <div className={`nc-PageLogin ${className}`} data-nc-id="PageLogin">
-      <Head>
-        <title>Login || Elevate Your Traveling Experience</title>
-      </Head>
       <div className="container mb-24 lg:mb-32">
         <h2 className="my-20 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">
           Login
@@ -47,7 +44,7 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
                 href={item.href}
                 className="nc-will-change-transform flex w-full rounded-lg bg-primary-50 dark:bg-neutral-800 px-4 py-3 transform transition-transform sm:px-6 hover:translate-y-[-2px]"
               >
-                <img
+                <Image
                   className="flex-shrink-0"
                   src={item.icon}
                   alt={item.name}
@@ -84,15 +81,13 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
                   Forgot password?
                 </Link>
               </span>
-              <Input type="password" className="mt-1" />
+              <Input type="password" placeholder="Your password" className="mt-1" />
             </label>
             <ButtonPrimary type="submit">Continue</ButtonPrimary>
           </form>
-
-          {/* ==== */}
           <span className="block text-center text-neutral-700 dark:text-neutral-300">
             New user? {` `}
-            <Link href="/signup">Create an account</Link>
+            <Link href="/account/signup">Create an account</Link>
           </span>
         </div>
       </div>
