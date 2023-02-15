@@ -3,6 +3,8 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 import { DateRage } from "components/HeroSearchForm/StaySearchForm";
 import moment from "moment";
 import React, { FC, Fragment, useEffect, useState } from "react";
+import "react-dates/initialize";
+import "react-dates/lib/css/_datepicker.css";
 import {
   DayPickerRangeController,
   FocusedInputShape,

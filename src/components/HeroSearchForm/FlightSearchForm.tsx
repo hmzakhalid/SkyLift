@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LocationInput from "./LocationInput";
+import "react-dates/initialize";
+import "react-dates/lib/css/_datepicker.css";
 import { FocusedInputShape } from "react-dates";
 import RentalCarDatesRangeInput from "./RentalCarDatesRangeInput";
 import { FC } from "react";

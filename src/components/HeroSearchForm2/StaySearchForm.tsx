@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import LocationInput from "./LocationInput";
 import GuestsInput, { GuestsInputProps } from "./GuestsInput";
+import "react-dates/initialize";
+import "react-dates/lib/css/_datepicker.css";
 import { FocusedInputShape } from "react-dates";
 import StayDatesRangeInput from "./StayDatesRangeInput";
 import moment from "moment";

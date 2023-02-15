@@ -2,6 +2,8 @@ import NcInputNumber from "components/NcInputNumber/NcInputNumber";
 import useWindowSize from "hooks/useWindowResize";
 import moment from "moment";
 import React, { FC, useState } from "react";
+import "react-dates/initialize";
+import "react-dates/lib/css/_datepicker.css";
 import { DayPickerSingleDateController } from "react-dates";
 import CommonLayout from "./CommonLayout";
 

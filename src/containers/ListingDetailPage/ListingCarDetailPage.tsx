@@ -8,6 +8,8 @@ import StartRating from "components/StartRating/StartRating";
 import GoogleMapReact from "google-map-react";
 import useWindowSize from "hooks/useWindowResize";
 import moment from "moment";
+import "react-dates/initialize";
+import "react-dates/lib/css/_datepicker.css";
 import {
   DayPickerRangeController,
   FocusedInputShape,
