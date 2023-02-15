@@ -119,10 +119,9 @@ const LocationInput: FC<LocationInputProps> = ({
     return (
       <>
         {[
-          "Ha Noi, Viet Nam",
-          "San Diego, CA",
-          "Humboldt Park, Chicago, IL",
-          "Bangor, Northern Ireland",
+          // "City, Singapore",
+          // "Tokyo, Japan",
+          defaultValue
         ].map((item) => (
           <span
             onClick={() => handleSelectLocation(item)}

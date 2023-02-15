@@ -42,8 +42,8 @@ const flightClass = [
 
 const FlightSearchForm: FC<FlightSearchFormProps> = ({ haveDefaultValue }) => {
   // DEFAULT DATA FOR ARCHIVE PAGE
-  const defaultPickUpInputValue = "Tokyo, Japan";
-  const defaultDropOffInputValue = "Paris, France";
+  const defaultPickUpInputValue = "City, Singapore";
+  const defaultDropOffInputValue = "Tokyo, Japan";
 
   // USE STATE
   const [dateRangeValue, setDateRangeValue] = useState<DateRage>({
@@ -54,8 +54,8 @@ const FlightSearchForm: FC<FlightSearchFormProps> = ({ haveDefaultValue }) => {
   //   startTime: "10:00 AM",
   //   endTime: "10:00 AM",
   // });
-  const [pickUpInputValue, setPickUpInputValue] = useState("");
-  const [dropOffInputValue, setDropOffInputValue] = useState("");
+  const [pickUpInputValue, setPickUpInputValue] = useState("City, Singapore");
+  const [dropOffInputValue, setDropOffInputValue] = useState("Tokyo, Japan");
   const [fieldFocused, setFieldFocused] = useState<
     FocusedInputShape | "dropOffInput" | null
   >(null);
