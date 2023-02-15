@@ -50,10 +50,10 @@ const FlightSearchForm: FC<FlightSearchFormProps> = ({ haveDefaultValue }) => {
     startDate: null,
     endDate: null,
   });
-  const [timeRangeValue, setTimeRangeValue] = useState<TimeRage>({
-    startTime: "10:00 AM",
-    endTime: "10:00 AM",
-  });
+  // const [timeRangeValue, setTimeRangeValue] = useState<TimeRage>({
+  //   startTime: "10:00 AM",
+  //   endTime: "10:00 AM",
+  // });
   const [pickUpInputValue, setPickUpInputValue] = useState("");
   const [dropOffInputValue, setDropOffInputValue] = useState("");
   const [fieldFocused, setFieldFocused] = useState<
@@ -243,14 +243,14 @@ const FlightSearchForm: FC<FlightSearchFormProps> = ({ haveDefaultValue }) => {
             </div>
             <RentalCarDatesRangeInput
               defaultDateValue={dateRangeValue}
-              defaultTimeValue={timeRangeValue}
+              // defaultTimeValue={timeRangeValue}
               defaultFocus={
                 fieldFocused === "dropOffInput" ? null : fieldFocused
               }
               onFocusChange={(focus) => setFieldFocused(focus)}
               onChange={(data) => {
                 setDateRangeValue(data.stateDate);
-                setTimeRangeValue(data.stateTimeRage);
+                // setTimeRangeValue(data.stateTimeRage);
               }}
               className="flex-1"
               buttonSubmitHref="/listing-flights"

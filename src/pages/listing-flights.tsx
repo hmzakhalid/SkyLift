@@ -1,6 +1,27 @@
+
+import { type NextPage } from "next";
+import Head from "next/head";
+import SiteHeader from "containers/SiteHeader";
+import Footer from "shared/Footer/Footer";
 import ListingFlightsPage from "containers/ListingFlightsPage/ListingFlightsPage";
 
-export default ListingFlightsPage;
+
+const FlightListings: NextPage = () => {
+  return (
+    <>
+      <Head>
+        <title>SkyLift</title>
+      </Head>
+      <div className="bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200">
+        <SiteHeader />
+        <ListingFlightsPage />
+        <Footer />
+      </div>
+    </>
+  );
+};
+
+export default FlightListings;
 
 // Flights Table
 /**
