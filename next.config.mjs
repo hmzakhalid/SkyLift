@@ -19,5 +19,8 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+    domains: ["avatars.githubusercontent.com", "i.ibb.co"],
+  },
 };
 export default config;

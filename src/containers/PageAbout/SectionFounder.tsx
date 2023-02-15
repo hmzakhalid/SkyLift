@@ -15,21 +15,21 @@ const FOUNDER_DEMO: People[] = [
     name: `Hamza Khalid`,
     job: "Co-founder and Chief Executive",
     avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
+      "https://avatars.githubusercontent.com/u/36852564?v=4",
   },
   {
     id: "2",
     name: `Malik Talha`,
     job: "Co-founder and Chief Executive",
     avatar:
-      "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
+      "https://i.ibb.co/tBd671b/1586939293338.jpg",
   },
   {
     id: "3",
     name: `Hamza Nasir`,
     job: "Co-founder, Chairman",
     avatar:
-      "https://images.unsplash.com/photo-1560365163-3e8d64e762ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
+      "https://avatars.githubusercontent.com/u/58875099?v=4",
   },
 ];
 

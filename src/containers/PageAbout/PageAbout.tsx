@@ -32,10 +32,7 @@ const PageAbout: FC<PageAboutProps> = ({ className = "" }) => {
         />
 
         <SectionFounder />
-        <div className="relative py-16">
-          <BackgroundSection />
-          <SectionClientSay uniqueClassName="PageAbout_" />
-        </div>
+        
 
         <SectionStatistic />
       </div>

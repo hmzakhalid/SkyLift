@@ -62,7 +62,7 @@ const SectionClientSay: FC<SectionClientSayProps> = ({
   const renderBg = () => {
     return (
       <div className="hidden md:block">
-        <Image className="absolute top-9 -left-20" src={clientSay1} alt="" />
+        {/* <Image className="absolute top-9 -left-20" src={clientSay1} alt="" />
         <Image
           className="absolute bottom-[100px] right-full mr-40"
           src={clientSay2}
@@ -83,7 +83,7 @@ const SectionClientSay: FC<SectionClientSayProps> = ({
           src={clientSay5}
           alt=""
         />
-        <Image className="absolute -right-10 top-10 " src={clientSay6} alt="" />
+        <Image className="absolute -right-10 top-10 " src={clientSay6} alt="" /> */}
       </div>
     );
   };
@@ -98,7 +98,7 @@ const SectionClientSay: FC<SectionClientSayProps> = ({
       </Heading>
       <div className="relative md:mb-16 max-w-2xl mx-auto">
         {renderBg()}
-        <Image className="mx-auto" src={clientSayMain} alt="" />
+        <Image className="mx-auto w-40 rounded-full" src="https://avatars.githubusercontent.com/u/36852564?v=4" width={400} height={400} alt="" />
         <div className={`mt-12 lg:mt-16 relative ${UNIQUE_CLASS}`}>
           <Image
             className="opacity-50 md:opacity-100 absolute -mr-16 lg:mr-3 right-full top-1"
