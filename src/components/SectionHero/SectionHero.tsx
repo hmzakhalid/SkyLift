@@ -20,7 +20,7 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
             Elevate your travel experience
           </h2>
           <span className="text-base md:text-lg text-neutral-500 dark:text-neutral-400">
-          Take off towards hassle-free travel with our one-stop platform for booking and managing flights!
+            Take off towards hassle-free travel with our one-stop platform for booking and managing flights!
           </span>
           <ButtonPrimary>Start your search</ButtonPrimary>
         </div>
