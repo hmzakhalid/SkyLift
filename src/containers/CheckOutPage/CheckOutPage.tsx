@@ -110,11 +110,13 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
               defaultValue={pickUpInputValue}
               placeHolder="Flying from"
               desc="Where do you want to fly from?"
+              disabled
             />
             <LocationInput
               defaultValue={dropOffInputValue}
               placeHolder="Flying To"
               desc="Where do you want to fly to?"
+              disabled
             />
             </div>
             
