@@ -1,9 +1,16 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import googleSvg from "images/Google.svg";
 import Input from "shared/Input/Input";
 import Link from 'next/link'
 import ButtonPrimary from "shared/Button/ButtonPrimary";
 import Image from "next/image";
+
+import axios from "axios";
+
+// AUTH
+import Router from "next/router";
+import type { NextPage } from "next";
+import { signIn, getProviders } from "next-auth/react";
 
 export interface PageLoginProps {
   className?: string;
@@ -18,6 +25,21 @@ const loginSocials = [
 ];
 
 const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const loginUser = async () => {
+    const res: any = await signIn("credentials", {
+      redirect: false,
+      email: email,
+      password: password,
+      callbackUrl: `${window.location.origin}`,
+    });
+
+    res.error ? console.log(res.error) :Router.push("/");
+  };
+
   return (
     <div className={`nc-PageLogin ${className}`} data-nc-id="PageLogin">
       <div className="container mb-24 lg:mb-32">
@@ -60,6 +82,7 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
                 type="email"
                 placeholder="example@example.com"
                 className="mt-1"
+                onChange={(e) => setEmail(e.target.value)}
               />
             </label>
             <label className="block">
@@ -69,9 +92,14 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
                   Forgot password?
                 </Link>
               </span>
-              <Input type="password" placeholder="Your password" className="mt-1" />
+              <Input 
+              type="password" placeholder="Your password" className="mt-1" 
+              onChange={(e) => setPassword(e.target.value)}
+              />
             </label>
-            <ButtonPrimary type="submit">Continue</ButtonPrimary>
+            <ButtonPrimary type="submit"
+            onClick={loginUser}
+            >Continue</ButtonPrimary>
           </form>
           <span className="block text-center text-neutral-700 dark:text-neutral-300">
             New user? {` `}
