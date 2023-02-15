@@ -13,7 +13,7 @@ import React, { FC, Fragment, useState } from "react";
 import Avatar from "shared/Avatar/Avatar";
 import ButtonSecondary from "shared/Button/ButtonSecondary";
 import SocialsList from "shared/SocialsList/SocialsList";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 
 export interface AuthorPageProps {
   className?: string;
@@ -211,9 +211,9 @@ const AuthorPage: FC<AuthorPageProps> = ({ className = "" }) => {
 
   return (
     <div className={`nc-AuthorPage ${className}`} data-nc-id="AuthorPage">
-      <Helmet>
+      <Head>
         <title>Login || Booking React Template</title>
-      </Helmet>
+      </Head>
       <main className="container mt-12 mb-24 lg:mb-32 flex flex-col lg:flex-row">
         <div className="block flex-grow mb-24 lg:mb-0">
           <div className="lg:sticky lg:top-24">{renderSidebar()}</div>

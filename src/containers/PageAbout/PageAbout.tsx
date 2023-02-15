@@ -2,7 +2,7 @@ import rightImg from "images/about-hero-right.png";
 import React, { FC } from "react";
 import SectionFounder from "./SectionFounder";
 import SectionStatistic from "./SectionStatistic";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import BgGlassmorphism from "components/BgGlassmorphism/BgGlassmorphism";
 import BackgroundSection from "components/BackgroundSection/BackgroundSection";
@@ -19,9 +19,9 @@ const PageAbout: FC<PageAboutProps> = ({ className = "" }) => {
       className={`nc-PageAbout overflow-hidden relative ${className}`}
       data-nc-id="PageAbout"
     >
-      <Helmet>
+      <Head>
         <title>About || Booking React Template</title>
-      </Helmet>
+      </Head>
 
       {/* ======== BG GLASS ======== */}
       <BgGlassmorphism />

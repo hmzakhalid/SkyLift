@@ -137,59 +137,9 @@ function PageHome() {
 
         {/* SECTION2 */}
         <SectionOurFeatures />
-
-        {/* SECTION */}
-        <div className="relative py-16">
-          <BackgroundSection />
-          <SectionGridFeaturePlaces />
-        </div>
-
+      
         {/* SECTION */}
         <SectionHowItWork />
-
-        {/* SECTION 1 */}
-        <div className="relative py-16">
-          <BackgroundSection className="bg-orange-50 dark:bg-black dark:bg-opacity-20 " />
-          <SectionSliderNewCategories
-            categories={DEMO_CATS_2}
-            categoryCardType="card4"
-            itemPerRow={4}
-            heading="Suggestions for discovery"
-            subHeading="Popular places to stay that Chisfis recommends for you"
-            sliderStyle="style2"
-            uniqueClassName="PageHome_s2"
-          />
-        </div>
-
-        {/* SECTION */}
-        <SectionSubscribe2 />
-
-        {/* SECTION */}
-        <div className="relative py-16">
-          <BackgroundSection className="bg-orange-50 dark:bg-black dark:bg-opacity-20 " />
-          <SectionGridAuthorBox />
-        </div>
-
-        {/* SECTION */}
-        <SectionGridCategoryBox />
-
-        {/* SECTION */}
-        <div className="relative py-16">
-          <BackgroundSection />
-          <SectionBecomeAnAuthor />
-        </div>
-
-        {/* SECTION 1 */}
-        <SectionSliderNewCategories
-          heading="Explore by types of stays"
-          subHeading="Explore houses based on 10 types of stays"
-          categoryCardType="card5"
-          itemPerRow={5}
-          uniqueClassName="PageHome_s3"
-        />
-
-        {/* SECTION */}
-        <SectionVideos />
 
         {/* SECTION */}
         <div className="relative py-16">

@@ -5,6 +5,7 @@ import HIW1img from "images/HIW1.png";
 import HIW2img from "images/HIW2.png";
 import HIW3img from "images/HIW3.png";
 import VectorImg from "images/VectorHIW.svg";
+import Image from "next/image";
 
 export interface SectionHowItWorkProps {
   className?: string;
@@ -63,19 +64,22 @@ const SectionHowItWork: FC<SectionHowItWorkProps> = ({
           >
             {item.imgDark ? (
               <>
-                <NcImage
-                  containerClassName="dark:hidden block mb-8 max-w-[200px] mx-auto"
+                <Image
+                  className="dark:hidden block mb-8 max-w-[200px] mx-auto"
                   src={item.img}
+                  alt=""
                 />
-                <NcImage
-                  containerClassName="hidden dark:block mb-8 max-w-[200px] mx-auto"
+                <Image
+                  className="hidden dark:block mb-8 max-w-[200px] mx-auto"
                   src={item.imgDark}
+                  alt=""
                 />
               </>
             ) : (
-              <NcImage
-                containerClassName="mb-8 max-w-[200px] mx-auto"
+              <Image
+                className="mb-8 max-w-[200px] mx-auto"
                 src={item.img}
+                alt=""
               />
             )}
             <div className="text-center mt-auto">

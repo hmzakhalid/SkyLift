@@ -6,7 +6,7 @@ import Input from "shared/Input/Input";
 import Select from "shared/Select/Select";
 import Textarea from "shared/Textarea/Textarea";
 import CommonLayout from "./CommonLayout";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 
 export interface AccountPageProps {
   className?: string;
@@ -15,9 +15,9 @@ export interface AccountPageProps {
 const AccountPage: FC<AccountPageProps> = ({ className = "" }) => {
   return (
     <div className={`nc-AccountPage ${className}`} data-nc-id="AccountPage">
-      <Helmet>
+      <Head>
         <title>Account || Booking React Template</title>
-      </Helmet>
+      </Head>
       <CommonLayout>
         <div className="space-y-6 sm:space-y-8">
           {/* HEADING */}

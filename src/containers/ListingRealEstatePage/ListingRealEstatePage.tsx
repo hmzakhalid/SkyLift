@@ -4,7 +4,7 @@ import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import { TaxonomyType } from "data/types";
 import React, { FC, useEffect } from "react";
 import SectionGridFilterCard from "./SectionGridFilterCard";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 import SectionHero2ArchivePage from "components/SectionHero2ArchivePage/SectionHero2ArchivePage";
 
 export interface ListingRealEstatePageProps {
@@ -84,9 +84,9 @@ const ListingRealEstatePage: FC<ListingRealEstatePageProps> = ({
       className={`nc-ListingRealEstatePage relative overflow-hidden ${className}`}
       data-nc-id="ListingRealEstatePage"
     >
-      <Helmet>
-        <title>Chisfis || Booking React Template</title>
-      </Helmet>
+      <Head>
+        <title>SkyLift || Booking React Template</title>
+      </Head>
 
       <div className="container relative">
         {/* SECTION HERO */}

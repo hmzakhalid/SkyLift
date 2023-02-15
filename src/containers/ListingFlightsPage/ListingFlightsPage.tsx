@@ -5,7 +5,7 @@ import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import { TaxonomyType } from "data/types";
 import React, { FC } from "react";
 import SectionGridFilterCard from "./SectionGridFilterCard";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 
 export interface ListingFlightsPageProps {
   className?: string;
@@ -72,9 +72,9 @@ const ListingFlightsPage: FC<ListingFlightsPageProps> = ({
       className={`nc-ListingFlightsPage relative overflow-hidden ${className}`}
       data-nc-id="ListingFlightsPage"
     >
-      <Helmet>
-        <title>Chisfis || Booking React Template</title>
-      </Helmet>
+      <Head>
+        <title>SkyLift || Booking React Template</title>
+      </Head>
       <BgGlassmorphism />
 
       <div className="container relative">

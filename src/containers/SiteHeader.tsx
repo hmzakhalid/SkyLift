@@ -177,7 +177,7 @@ const SiteHeader = () => {
                         <a
                           className="flex items-center justify-center w-full px-4 py-2 !rounded-xl text-sm font-medium bg-primary-6000 text-white hover:bg-primary-700"
                           href={
-                            "https://themeforest.net/item/chisfis-online-booking-react-template/33515927"
+                            "https://themeforest.net/item/SkyLift-online-booking-react-template/33515927"
                           }
                           target="_blank"
                           rel="noopener noreferrer"
@@ -220,7 +220,7 @@ const SiteHeader = () => {
   return (
     <>
       <Head>
-        <title>Chisfis || Booking React Template</title>
+        <title>SkyLift || Booking React Template</title>
       </Head>
       {renderControlSelections()}
       {renderHeader()}

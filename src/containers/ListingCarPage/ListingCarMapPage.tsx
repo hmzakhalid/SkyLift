@@ -6,7 +6,7 @@ import SectionHeroArchivePage from "components/SectionHeroArchivePage/SectionHer
 import SectionSliderNewCategories from "components/SectionSliderNewCategories/SectionSliderNewCategories";
 import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import SectionGridHasMap from "./SectionGridHasMap";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 import heroRightImage from "images/hero-right-car.png";
 
 export interface ListingCarMapPageProps {
@@ -19,9 +19,9 @@ const ListingCarMapPage: FC<ListingCarMapPageProps> = ({ className = "" }) => {
       className={`nc-ListingCarMapPage relative ${className}`}
       data-nc-id="ListingCarMapPage"
     >
-      <Helmet>
-        <title>Chisfis || Booking React Template</title>
-      </Helmet>
+      <Head>
+        <title>SkyLift || Booking React Template</title>
+      </Head>
       <BgGlassmorphism />
 
       {/* SECTION HERO */}
