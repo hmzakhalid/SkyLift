@@ -7,6 +7,8 @@ import React, { FC } from "react";
 import SectionGridFilterCard from "./SectionGridFilterCard";
 import Head from "next/head";
 import Footer from "shared/Footer/Footer";
+import SiteHeader from "containers/SiteHeader";
+
 
 export interface ListingFlightsPageProps {
   className?: string;
@@ -76,6 +78,8 @@ const ListingFlightsPage: FC<ListingFlightsPageProps> = ({
       <Head>
         <title>SkyLift || Elevate Your Traveling Experience</title>
       </Head>
+      <SiteHeader />
+
       <BgGlassmorphism />
 
       <div className="container relative mb-8">
